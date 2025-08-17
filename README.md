@@ -151,7 +151,7 @@ Mini Banking System – A simple console-based banking application built with Ja
 
 	The following ER diagram represents the relationships between Users, Accounts, and Transactions in the system:
 
- 	![ER Diagram](images/er_diagram.png)
+ 	![ER Diagram](images/er_digram.png)
 
 		Users → Stores user details and credentials.
 		Account → Each user has an account with balance information.
