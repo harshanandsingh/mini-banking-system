@@ -21,29 +21,44 @@ Mini Banking System – A simple console-based banking application built with Ja
 
 3. Project Flow Explanation -
 
-a. Registration Flow:
+    a. Registration Flow:
   
-      User enters name, email, password.
-      System → calls UserDAO.registerUser(newUser).
-      UserDAO → establishes DB connection, starts transaction.
-      Insert into users table.
-      On success, create account with balance = 0.
-      Commit if successful, rollback if failure.
-      Return status to user.
-      Outcome: Account created, user registered.
+          User enters name, email, password.
+          System → calls UserDAO.registerUser(newUser).
+          UserDAO → establishes DB connection, starts transaction.
+          Insert into users table.
+          On success, create account with balance = 0.
+          Commit if successful, rollback if failure.
+          Return status to user.
+          Outcome: Account created, user registered.
       
-b. Login Flow:
+    b. Login Flow:
 
-      Start – Input Credentials
-        The user enters their email and password.
-      Authenticate User
-        The system searches the database for a matching email that is not marked as deleted.
-      Database Response
-        If a user record is found, the system retrieves the stored (hashed) password.
-        The entered password is compared with the stored password securely.
-      Password Verification
-        If the password matches → A user session is created, and the user is logged in.
-        if the password does not match or the user is not found → The login fails.
-      System Decision
-        On success → A message “Login successful” is shown, and the user menu/options are displayed.
-        On failure → A message “Invalid email or password” is shown
+        User enters email + password.
+        System → calls UserDAO.login(email, password).
+        DAO fetches user details, verifies password with BCrypt.
+        If correct → Session.login(user) (store user in session).
+        Else → show "Invalid credentials".
+
+   c. View Profile Info Flow:
+
+        System fetches current user from Session.getCurrentUser().
+        Display user details (name, email, balance).
+
+   d. Deposit Money Flow:
+
+        User enters amount.
+        System → calls TransactionDAO.deposit(userId, amount).
+        DAO inserts new transaction (type = credit).
+        Updates account balance.
+        Return success/failure.
+
+   e. Withdraw Money Flow:
+
+   		User enters amount.
+		Check if balance ≥ amount.
+		If yes → create debit transaction, update balance.
+		Else → show "Insufficient funds".
+   
+       
+
