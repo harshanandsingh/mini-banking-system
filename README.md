@@ -22,7 +22,8 @@ Mini Banking System – A simple console-based banking application built with Ja
 3. Project Flow Explanation -
 
     a. Registration Flow:
-  		  Here’s the UML diagram :
+   
+  	Here’s the UML diagram :
    
    ![UML Diagram](images/register_account.png)
    
@@ -38,6 +39,10 @@ Mini Banking System – A simple console-based banking application built with Ja
       
     b. Login Flow:
 
+   	Here’s the UML diagram :
+   
+    ![UML Diagram](images/login_account.png)
+   
         User enters email + password.
         System → calls UserDAO.login(email, password).
         DAO fetches user details, verifies password with BCrypt.
@@ -46,10 +51,18 @@ Mini Banking System – A simple console-based banking application built with Ja
 
    c. View Profile Info Flow:
 
+   Here’s the UML diagram :
+   
+   ![UML Diagram](images/view_profile_info.png)
+
         System fetches current user from Session.getCurrentUser().
         Display user details (name, email, balance).
 
    d. Deposit Money Flow:
+
+   Here’s the UML diagram :
+   
+   ![UML Diagram](images/deposite_amount.png)
 
         User enters amount.
         System → calls TransactionDAO.deposit(userId, amount).
@@ -58,6 +71,10 @@ Mini Banking System – A simple console-based banking application built with Ja
         Return success/failure.
 
    e. Withdraw Money Flow:
+
+   Here’s the UML diagram :
+   
+   ![UML Diagram](images/withdrow_amount.png)
 
    		User enters amount.
 		Check if balance ≥ amount.
