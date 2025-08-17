@@ -22,7 +22,11 @@ Mini Banking System – A simple console-based banking application built with Ja
 3. Project Flow Explanation -
 
     a. Registration Flow:
-  
+  		  Here’s the UML diagram :
+   
+   ![UML Diagram](images/register_account.png)
+   
+   	
           User enters name, email, password.
           System → calls UserDAO.registerUser(newUser).
           UserDAO → establishes DB connection, starts transaction.
